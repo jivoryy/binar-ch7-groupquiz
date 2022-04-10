@@ -7,7 +7,7 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-// keep the exceptionHandling in the bottom of the routes
+// keep the exceptionHandling on the bottom of the index routes
 router.use(exceptionHandling);
 
 module.exports = router;
