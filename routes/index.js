@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const { HomePage } = require("../controllers/home");
 const exceptionHandling = require("./exceptionHandling");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+router.get("/", HomePage.getHomePage);
 
 // keep the exceptionHandling on the bottom of the index routes
 router.use(exceptionHandling);
