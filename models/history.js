@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     date: DataTypes.DATE,
     arrive: DataTypes.TIME,
-    leave: DataTypes.TIME
+    leave: DataTypes.TIME,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'History',
