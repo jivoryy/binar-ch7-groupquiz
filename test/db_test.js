@@ -9,4 +9,5 @@ const find = async () => {
     console.log("error saat menjalankan user findall", err);
   }
 };
+
 find();
