@@ -18,12 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       date: DataTypes.DATE,
       arrive: DataTypes.TIME,
       leave: DataTypes.TIME,
-      // UserId: DataTypes.INTEGER,
     },
     {
       sequelize,
       modelName: "History",
-      // freezeTableName: true,
     }
   );
   return History;
