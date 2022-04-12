@@ -4,7 +4,7 @@ const find = async () => {
     const user = await User.findAll({
       include: [History],
     });
-    console.log(user);
+    console.log(user[0].Histories);
   } catch (err) {
     console.log("error saat menjalankan user findall", err);
   }

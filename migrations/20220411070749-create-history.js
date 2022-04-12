@@ -10,6 +10,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        // primaryKey: true,
       },
       date: {
         type: Sequelize.DATE,
@@ -20,9 +21,9 @@ module.exports = {
       leave: {
         type: Sequelize.TIME,
       },
-      UserId: {
-        type: Sequelize.INTEGER,
-      },
+      // UserId: {
+      //   type: Sequelize.INTEGER,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

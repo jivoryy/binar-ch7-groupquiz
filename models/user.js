@@ -8,7 +8,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.hasMany(models.History);
+      User.hasMany(models.History, {
+        foreignKey: {
+          name: "name",
+          type: DataTypes.STRING,
+        },
+      });
+      models.History.belongsTo(User, {
+        foreignKey: {
+          name: "name",
+          type: DataTypes.STRING,
+        },
+      });
     }
   }
   User.init(
@@ -16,10 +27,15 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       group: DataTypes.STRING,
       email: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+      },
     },
     {
       sequelize,
       modelName: "User",
+      // freezeTableName: true,
     }
   );
   return User;
