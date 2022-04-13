@@ -1,47 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { userHistory } =  require("../models");
+const { history } =  require("../models");
 
-router.get("/userHistory", async (_, res) => {
-    res.status(200).jason(await userHistory.findAll());
-});
+router.get("/history/", history.index);
 
-// POST HISTORY
-router.post("/userData", async (req, res) => {
-    const history = await userHistory.create({
-        name: req.body.name,
-        date: req.body.group,
-        arrive: req.body.email,
-        createdAt: Date.now(),
-    });
+// POST DATA
+router.post("/history/create", history.create );
 
-    res.status(201).json(userHistory);
-});
+// UPDATE DATA
+router.put("/history/post", history.post);
 
-// UPDATE HISTORY
-router.put("/userData/:id", async (req, res) => {
-    const data = await userHistory.create({
-        name: req.body.name,
-        date: req.body.group,
-        arrive: req.body.email,
-        updatedAt: Date.now(),
-    }, {
-    where: {
-        id: req.body.id
-    }
-    });
-    res.status(204).json(userHistory);
-});
-
-// DELETE HISTORY
-router.delete("/userData", async (req, res) => {
-    const userData = await userHistory.destroy({
-        where: {
-            id: req.body.id
-        }
-    })
-    res.status(204).json(userHistory);
-})
+// DELETE DATA
+router.delete("/history/delete", history.delete);
 
 module.exports = router;
