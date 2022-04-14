@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ('partials/meta') %>
+        <title>
+            <%= title %>
+        </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <%- include('partials/navbar-profile.ejs') %>
+    <h1>Employee</h1>
+    <div class="col-md-6 container">
+        <h1 class="users">User Details</h1>
+        <div>
+            <h3>id: </h3>
+            <h3>nama: </h3>
+            <h3>group: </h3>
+            <h3>email: </h3>
+        </div>
+
+        <div col-md-6>
+           <a href="./absensi.html"><button class="btn btn-primary" type="button">edit</button></a>
+        </div>
+        <div class="container">
+            <div class="coloumn baris">
+              <table class="tabel">
+                <tr>
+                  <th>Tanggal</th>
+                  <th>Waktu Masuk</th>
+                  <th>Waktu Keluar</th>
+                </tr>
+                <tr>
+                  <td>12/04/2022</td>
+                  <td>08:00:00</td>
+                  <td>17:00:00</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</body>
+
+</html>

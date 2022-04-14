@@ -1,8 +1,17 @@
-body {
-    padding: 30px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+a {
+  color: #00b7ff;
 }
 
-a {
-    color: #00b7ff;
+.tabel {
+  width: 100%;
+}
+.coloumn {
+  border: 1px solid black;
+}
+.baris {
+  border: 1px solid black;
+}
+.btn-primary {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

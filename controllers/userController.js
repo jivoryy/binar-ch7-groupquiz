@@ -1,41 +1,46 @@
-const { User } = require("../models");
+const { User, History } = require("../models");
 
 module.exports = {
-  read: async (_, res) => {
-    const newuser = await User.findAll({
-      order: [["name", "ASC"]],
+  readUser: async () => {
+    const user = await User.findAll({
+      include: [
+        {
+          model: History,
+          required: false, // do not generate INNER JOIN
+          attributes: [
+            "id",
+            "name",
+            "date",
+            "arrive",
+            "leave",
+            "createdAt",
+            "updatedAt",
+          ],
+        },
+      ],
+      attributes: ["id", "name", "group", "email"],
     });
-
-    res.render("user", { newuser });
-    //   res.status(201).json(newuser);
+    return user;
   },
 
-  create: async (_, res) => {
-    res.render("user/create");
-    // res.status(201).json({test:"success"});
-  },
-
-  post: async (req, res) => {
+  createUser: async (req, res) => {
     await User.create({
       name: req.body.name,
       group: req.body.group,
       email: req.body.email,
     });
-    res.redirect("/user");
-    // res.status(201).json({result:"success create"});
   },
 
-  edit: async (req, res) => {
+  editUser: async (req, res) => {
     const existinguser = await User.findOne({
       where: {
         id: +req.params.id,
       },
     });
-    res.render("user/update", existinguser);
-    // res.status(202).json(existinguser);
+    return existinguser;
   },
 
-  update: async (req, res) => {
+  updateUser: async (req, res) => {
     await User.update(
       {
         name: req.body.name,
@@ -48,17 +53,18 @@ module.exports = {
         },
       }
     );
-    // res.status(201).json({result: "success"});
-    res.redirect("/user");
   },
 
-  delete: async (req, res) => {
+  deleteUser: async (req, res) => {
     await User.destroy({
       where: {
-        id: req.params.id,
+        name: req.params.name,
       },
     });
-    //res.redirect("/user");
-    res.status(204).json({ result: "success" });
+    await History.destroy({
+      where: {
+        name: req.params.name,
+      },
+    });
   },
 };

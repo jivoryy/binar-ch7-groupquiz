@@ -2,8 +2,8 @@ const { History, User, sequelize } = require("../models");
 const { Op } = require("sequelize");
 
 module.exports = {
-  read: async (req, res) => {
-    const userhistory = await User.findAll({
+  readHistory: async (name) => {
+    const user = await User.findOne({
       include: [
         {
           model: History,
@@ -20,17 +20,14 @@ module.exports = {
         },
       ],
       attributes: ["id", "name", "group", "email"],
+      where: {
+        name: name,
+      },
     });
-    res.render("userhistory", { userhistory });
-    // res.status(201).json(userhistory);
+    return user;
   },
 
-  create: async (req, res) => {
-    res.render("userhistory/create");
-    // res.status(201).json({test:"success"});
-  },
-
-  post: async (req, res) => {
+  createHistory: async (req, res) => {
     const username = await User.findOne({
       where: {
         id: req.body.UserId,
@@ -47,7 +44,7 @@ module.exports = {
     // res.status(201).json({result:"success"});
   },
 
-  edit: async (req, res) => {
+  editHistory: async (req, res) => {
     const userhistory = await User.findOne({
       include: [
         {
@@ -72,7 +69,7 @@ module.exports = {
     // res.status(201).json(userhistory);
   },
 
-  update: async (req, res) => {
+  updateHistory: async (req, res) => {
     await History.update(
       {
         //name: req.body.name,
@@ -91,7 +88,7 @@ module.exports = {
     // res.status(201).json({test:"success"});
   },
 
-  leave: async (req, res) => {
+  leaveHistory: async (req, res) => {
     await History.update(
       {
         //name: req.body.name,
@@ -108,7 +105,7 @@ module.exports = {
     // res.status(201).json({test:"success"});
   },
 
-  arrive: async (req, res) => {
+  arriveHistory: async (req, res) => {
     await History.post(
       {
         //name: req.body.name,
@@ -127,7 +124,7 @@ module.exports = {
     // res.status(201).json({test:"success"});
   },
 
-  delete: async (req, res) => {
+  deleteHistory: async (req, res) => {
     await History.destroy({
       where: {
         id: req.params.id,

@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <%- include ('partials/meta') %>
-        <title>
-            <%= title %>
-        </title>
-        <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
-</head>
+    <title><%= title %></title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+  </head>
 
-<body>
-    <%- include('partials/navbar-profile.ejs') %>
-        <h1>
-            <%= title %>
-        </h1>
-        <p>Welcome to
-            <%= title %>
-        </p>
-</body>
-
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div
+      class="container text-center m-auto top-50 bottom-50 start-0 end-0 position-absolute"
+    >
+      <h1>WELCOME TO ATTENDANCE APP</h1>
+    </div>
+  </body>
 </html>
