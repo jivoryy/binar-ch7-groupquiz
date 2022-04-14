@@ -33,5 +33,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }
