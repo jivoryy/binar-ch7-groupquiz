@@ -15,10 +15,10 @@
     <div class="col-md-6 container">
         <h1 class="users">User Details</h1>
         <div>
-            <h3>id: </h3>
-            <h3>nama: </h3>
-            <h3>group: </h3>
-            <h3>email: </h3>
+            <h3>id: <%= data.dataValues.id %>  </h3>
+            <h3>nama: <%= data.name %> </h3>
+            <h3>group: <%= data.group %> </h3>
+            <h3>email: <%= data.email %> </h3>
         </div>
 
         <div col-md-6>
@@ -32,11 +32,13 @@
                   <th>Waktu Masuk</th>
                   <th>Waktu Keluar</th>
                 </tr>
+                <% data.Histories.forEach(history => { %>
                 <tr>
-                  <td>12/04/2022</td>
-                  <td>08:00:00</td>
-                  <td>17:00:00</td>
+                  <td><%= history.date %> </td>
+                  <td><%= history.arrive %></td>
+                  <td><%= history.leave %></td>
                 </tr>
+                <% }); %> 
               </table>
         </div>
     </div>

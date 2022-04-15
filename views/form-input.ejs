@@ -20,47 +20,31 @@
         </h1>
         <p>Welcome to
             <%= title %>
-        </p>ds
+        </p>
         <div class="container">
             <div class="row">
                 <h1>Input Data</h1>
             </div>
+            <form action="/user/add" method="POST">
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Name :</label>
+                    <label for="name" class="form-label-md ms-3">Name :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
+                <div class="col-sm-3"><input type="text" class="form-control-md " id="name" name="name" />
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Date :</label>
+                    <label for="group" class="form-label-md ms-3">Group :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Arrive :</label>
-                </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
+                <div class="col-sm-3"><input type="text" class="form-control-md" id="group" name="group" />
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Leave :</label>
+                    <label for="email" class="form-label-md ms-3">Email :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Created At :</label>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Edited At :</label>
+                <div class="col-sm-3"><input type="email" class="form-control-md " id="email" name="email" />
                 </div>
             </div>
             <br>

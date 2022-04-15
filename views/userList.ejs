@@ -34,8 +34,8 @@
           <td> <%= user.email%> </td>
           <td> 
               <a href="/user/details?name=<%= user.name %> "><button class="btn btn-primary" type="button">Details</button></a>
-              <button class="btn btn-primary btn-warning" type="button">Update</button>
-              <button class="btn btn-primary btn-danger" type="button">Delete</button>
+              <a href="/user/edit?name=<%= user.name %> "><button class="btn btn-primary btn-warning" type="button">Update</button></a>
+              <a href="/user/erase?name=<%= user.name %> "><button class="btn btn-primary btn-danger" type="button">Delete</button></a>
           </td>
         </tr>
         <%}); %> 

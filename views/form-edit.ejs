@@ -20,48 +20,49 @@
         </h1>
         <p>Welcome to
             <%= title %>
-        </p>ds
+        </p>
         <div class="container">
             <div class="row">
                 <h1>Data User History</h1>
             </div>
+            <form action="/user/edit" method="POST">
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">ID :</label>
+                    <label for="id" class="form-label-md ms-3">ID :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
+                <div class="col-sm-3"><input type="text" class="form-control-md " id="id" name="id" value="<%= data.dataValues.id %> " readonly>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Name :</label>
+                    <label for="name" class="form-label-md ms-3">Name :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Group :</label>
-                </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
+                <div class="col-sm-3"><input type="text" class="form-control-md " id="name" name="name" value="<%= data.name %>"/>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Email :</label>
+                    <label for="group" class="form-label-md ms-3">Group :</label>
                 </div>
-                <div class="col-sm-3"><input type="text" class="form-control-md " id="" />
+                <div class="col-sm-3"><input type="text" class="form-control-md " id="group" name="group" value="<%= data.group %>"/>
                 </div>
             </div>
             <div class="row mt-4">
+                <div class="mb-2 col-sm-2">
+                    <label for="email" class="form-label-md ms-3">Email :</label>
+                </div>
+                <div class="col-sm-3"><input type="email" class="form-control-md " id="email" name="email" value="<%= data.email %>"/>
+                </div>
+            </div>
+            <!-- <div class="row mt-4">
                 <div class="mb-2 col-sm-2">
                     <label for="" class="form-label-md ms-3">History :</label>
                 </div>
                 <div class="col-sm-3">
-                    <!-- Button trigger modal -->
+                    Button trigger modal
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">History</button>
 
-                    <!-- Modal -->
+                    Modal
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -86,17 +87,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Created At :</label>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="mb-2 col-sm-2">
-                    <label for="" class="form-label-md ms-3">Edited At :</label>
-                </div>
-            </div>
+            </div> -->
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>

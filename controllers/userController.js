@@ -23,11 +23,11 @@ module.exports = {
     return user;
   },
 
-  createUser: async (req, res) => {
+  createUser: async (name, group, email) => {
     await User.create({
-      name: req.body.name,
-      group: req.body.group,
-      email: req.body.email,
+      name: name,
+      group: group,
+      email: email,
     });
   },
 
@@ -40,30 +40,30 @@ module.exports = {
     return existinguser;
   },
 
-  updateUser: async (req, res) => {
+  updateUser: async (id, name, group, email) => {
     await User.update(
       {
-        name: req.body.name,
-        group: req.body.group,
-        email: req.body.email,
+        name: name,
+        group: group,
+        email: email,
       },
       {
         where: {
-          id: req.body.id,
+          id: id,
         },
       }
     );
   },
 
-  deleteUser: async (req, res) => {
+  deleteUser: async (name) => {
     await User.destroy({
       where: {
-        name: req.params.name,
+        name: name,
       },
     });
     await History.destroy({
       where: {
-        name: req.params.name,
+        name: name,
       },
     });
   },
